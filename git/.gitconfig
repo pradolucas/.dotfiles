@@ -1,0 +1,31 @@
+[user]
+	email = santos.lucasprado@gmail.com
+; [core]
+; 	pager = delta
+; 	editor = nvim
+; 	autocrlf = false
+; [pager]
+;     diff = delta
+;     log = delta
+;     reflog = delta
+;     show = delta
+; [interactive]
+;   diffFilter = delta --color-only
+; [delta]
+; 	side-by-side = true
+;   features = side-by-side line-numbers decorations
+;   whitespace-error-style = 22 reverse
+;   plus-color = "#012800"
+;   minus-color = "#340001"
+;   syntax-theme = Monokai Extended
+; [delta "decorations"]
+;   commit-decoration-style = bold yellow box ul
+;   file-style = bold yellow ul
+;   file-decoration-style = none
+;   hunk-header-decoration-style = blue box
+;   hunk-header-file-style = red
+;   hunk-header-line-number-style = "#067a00"
+;   hunk-header-style = file line-number syntax
+;   commit-style = raw
+; [rebase]
+; 	instructionFormat = (%an <%ae>) %s

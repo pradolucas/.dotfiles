@@ -47,7 +47,8 @@ Plug 'folke/which-key.nvim'
 Plug 'glepnir/dashboard-nvim'
 
 " Smoth scrolling
-Plug 'karb94/neoscroll.nvim' "meh
+" Plug 'karb94/neoscroll.nvim' "meh
+
 call plug#end()
 
 source $HOME/.config/nvim/plugins/nvim-treesitter/init.lua
@@ -60,5 +61,7 @@ source $HOME/.config/nvim/plugins/bufferline-config/init.lua
 source $HOME/.config/nvim/plugins/nvimtree-config/init.lua
 source $HOME/.config/nvim/plugins/autopairs-config/init.lua
 source $HOME/.config/nvim/lua/lsp/init.lua 
-source $HOME/.config/nvim/plugins/neoscroll-config/init.lua
+" source $HOME/.config/nvim/plugins/neoscroll-config/init.lua
+source $HOME/.config/nvim/plugins/dashboard-config/init.vim
+
 
