@@ -1,0 +1,7 @@
+git 
+zsh
+tmux
+stow
+most
+build-essential
+#docker ver tutorial

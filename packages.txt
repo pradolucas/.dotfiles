@@ -1,5 +1,0 @@
-git 
-zsh
-tmux
-stow
-most
