@@ -2,7 +2,7 @@
 set -e
 
 mkdir -p "$HOME/.dotfiles"
-git clone https://github.com/pradolucas/.dotfiles "$HOME/.dotfiles"
+git clone https://github.com/pradolucas/.dotfiles --branch automatic "$HOME/.dotfiles"
 chmod +r+x "$HOME/.dotfiles/setup.sh"
 
 echo "Installing"
