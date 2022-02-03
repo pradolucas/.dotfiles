@@ -6,4 +6,3 @@ most
 build-essential
 asdf
 ripgrep
-#docker ver tutorial
