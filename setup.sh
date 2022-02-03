@@ -2,7 +2,6 @@
 
 xargs sudo apt-get install <scripts/packages.txt
 
-mv ~/.config/nvim ~/.config/NVIM.BAK
 rm -rf "$HOME/.zinit"
 rm -rf "$HOME/.oh-my-zsh"
 
@@ -25,14 +24,16 @@ chmod u+x nvim.appimage
 mkdir --parents /home/$USER/.local/bin/; mv nvim.appimage $_
 
 # Tmux 
+mv tmux/.tmux.conf tmux/.tmux.conf.BAK
 git clone https://github.com/gpakosz/.tmux.git
 ln -f .tmux/.tmux.conf tmux/
 stow -vSt ~ tmux
 
 # Nvim
 mv ~/.config/nvim ~/.config/NVIM.BAK
-git clone https://github.com/NvChad/NvChad nvim/.config/nvim/
-mv nvim/custom nvim/nvim/lua/
+git clone https://github.com/NvChad/NvChad ~/.config/nvim/
+# mv nvim/.config/lua/custom ~/.config/nvim/lua/
+stow -vSt ~ nvim
 nvim +'hi NormalFloat guibg=#1e222a' +PackerSync
 
 echo "Finished! Reload your terminal to use the latest setup."
