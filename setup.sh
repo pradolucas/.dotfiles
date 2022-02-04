@@ -4,6 +4,12 @@ xargs sudo apt install -y <scripts/packages.txt
 
 rm -rf "$HOME/.zinit"
 rm -rf "$HOME/.oh-my-zsh"
+
+echo -e "\n\n Installing ohmyzsh..."
+# ohmyzsh
+rm -rf "$HOME/.oh-my-zsh"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# curl -fsSLhttps://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash 
 rm ~/.zshrc
 
 echo -e "\n\n Installing ZSH & spaceship theme..."
@@ -17,6 +23,7 @@ ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/the
 
 echo -e"\n\n Installing Tmux..."
 # Tmux 
+rm -rf .tmux
 mv tmux/.tmux.conf tmux/.tmux.conf.BAK
 git clone https://github.com/gpakosz/.tmux.git
 ln -f .tmux/.tmux.conf tmux/
@@ -29,15 +36,11 @@ chmod u+x nvim.appimage
 mkdir --parents "$HOME/.local/bin/"; mv nvim.appimage $_
 
 # Nvim
+rm -rf ~/NVIM.BAK
 mv ~/.config/nvim ~/.config/NVIM.BAK
 git clone https://github.com/NvChad/NvChad ~/.config/nvim/
 # mv nvim/.config/lua/custom ~/.config/nvim/lua/
 stow -vSt ~ nvim
 "$HOME/.local/bin/nvim.appimage" +'hi NormalFloat guibg=#1e222a' +PackerSync
 
-echo -e "\n\n Installing ohmyzsh..."
-# ohmyzsh
-# sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-curl -fsSLhttps://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash 
-
-echo "Finished! Reload your terminal to use the latest setup."
+echo "Finished! Reload your terminal to use the latest setup. Now, download the dracula theme and a Nerd font(Caskaydia)"
