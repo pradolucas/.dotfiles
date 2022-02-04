@@ -21,7 +21,7 @@ ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/the
 # NVIM & ~NV CHAD~
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x nvim.appimage
-mkdir --parents /home/$USER/.local/bin/; mv nvim.appimage $_
+mkdir --parents "$HOME/.local/bin/"; mv nvim.appimage $_
 
 # Tmux 
 mv tmux/.tmux.conf tmux/.tmux.conf.BAK
@@ -34,6 +34,6 @@ mv ~/.config/nvim ~/.config/NVIM.BAK
 git clone https://github.com/NvChad/NvChad ~/.config/nvim/
 # mv nvim/.config/lua/custom ~/.config/nvim/lua/
 stow -vSt ~ nvim
-nvim +'hi NormalFloat guibg=#1e222a' +PackerSync
+"$HOME/.local/bin/nvim.appimage" +'hi NormalFloat guibg=#1e222a' +PackerSync
 
 echo "Finished! Reload your terminal to use the latest setup."
