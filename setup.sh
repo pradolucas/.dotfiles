@@ -1,6 +1,6 @@
 #!/bin/bash
 
-xargs sudo apt-get install <scripts/packages.txt
+xargs sudo apt install -y <scripts/packages.txt
 
 rm -rf "$HOME/.zinit"
 rm -rf "$HOME/.oh-my-zsh"
