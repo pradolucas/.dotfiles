@@ -10,20 +10,20 @@ map("n", "<leader>cc", ":Telescope <CR>")
 map("n", "<leader>q", ":q <CR>")
 -- NOTE: the 4th argument in the map function can be a table i.e options but its most likely un-needed so dont worry about it
 
--- Install plugins
-local customPlugins = require "core.customPlugins"
-
-customPlugins.add(function(use)
-   use {
-      "max397574/better-escape.nvim",
-      event = "InsertEnter",
-   }
-
-   use {
-      "williamboman/nvim-lsp-installer",
-      --further packer options
-   }
-end)
+-- -- Install plugins
+-- local customPlugins = require "core.customPlugins"
+--
+-- customPlugins.add(function(use)
+--    use {
+--       "max397574/better-escape.nvim",
+--       event = "InsertEnter",
+--    }
+--
+--    use {
+--       "williamboman/nvim-lsp-installer",
+--       --further packer options
+--    }
+-- end)
 
 -- NOTE: we heavily suggest using Packer's lazy loading (with the 'event','cmd' fields)
 -- see: https://github.com/wbthomason/packer.nvim
