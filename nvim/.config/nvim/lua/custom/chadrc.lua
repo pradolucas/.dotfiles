@@ -1,10 +1,11 @@
+
+-- IMPORTANT NOTE : This is default config, so dont change anything here.
+-- use custom/chadrc.lua instead
+
 local M = {}
 
 M.options = {
-    custom = { -- utils.load_config not loading chadrc correctly
-      nowrap = true,
-      scrolloff = 10,
-    },
+   -- custom = {}
    -- general nvim/vim options , check :h optionname to know more about an option
 
    clipboard = "unnamedplus",
@@ -21,11 +22,12 @@ M.options = {
    expandtab = true,
    shiftwidth = 2,
    smartindent = true,
-   tabstop = 4,
+   tabstop = 8,
    timeoutlen = 400,
    updatetime = 250,
    undofile = true,
    fillchars = { eob = " " },
+   shadafile = vim.opt.shadafile,
 
    -- NvChad options
    nvChad = {
@@ -59,33 +61,33 @@ M.plugins = {
    status = {
       blankline = true, -- indentline stuff
       bufferline = true, -- manage and preview opened buffers
-      colorizer = false, -- color RGB, HEX, CSS, NAME color codes -- CHECK 
+      colorizer = false, -- color RGB, HEX, CSS, NAME color codes
       comment = true, -- easily (un)comment code, language aware
-      dashboard = true,  -- CHECK
+      dashboard = false,
       better_escape = true, -- map to <ESC> with no lag
       feline = true, -- statusline
       gitsigns = true,
       lspsignature = true, -- lsp enhancements
-      telescope_media = false,
       vim_matchup = true, -- improved matchit
       cmp = true,
+      snippets = true,
       nvimtree = true,
       autopairs = true,
    },
    options = {
+      packer = {
+         init_file = "plugins.packerInit",
+      },
       autopairs = { loadAfter = "nvim-cmp" },
+      cmp = {
+         lazy_load = true,
+      },
       lspconfig = {
-         setup_lspconf = "custom.plugins.lspconfig", -- path of file containing setups of different lsps
+         setup_lspconf = "", -- path of file containing setups of different lsps
       },
       nvimtree = {
-         enable_git = 1, --CHECK
-
-         ui = {
-            allow_resize = true,
-            side = "left",
-            width = 25,
-            hide_root_folder = true,
-         },
+         -- packerCompile required after changing lazy_load
+         lazy_load = true,
       },
       luasnip = {
          snippet_path = {},
@@ -107,6 +109,8 @@ M.plugins = {
       esc_insertmode_timeout = 300,
    },
    default_plugin_config_replace = {},
+   default_plugin_remove = {},
+   install = nil,
 }
 
 -- Don't use a single keymap twice
@@ -121,7 +125,9 @@ M.mappings = {
       cheatsheet = "<leader>ch",
       close_buffer = "<leader>x",
       copy_whole_file = "<C-a>", -- copy all contents of current buffer
+      copy_to_system_clipboard = "<C-c>", -- copy selected text (visual mode) or curent line (normal)
       line_number_toggle = "<leader>n", -- toggle line number
+      relative_line_number_toggle = "<leader>rn",
       update_nvchad = "<leader>uu",
       new_buffer = "<S-t>",
       new_tab = "<C-t>b",
@@ -167,7 +173,7 @@ M.mappings = {
 }
 
 -- plugins related mappings
-
+-- To disable a mapping, equate the variable to "" or false or nil in chadrc
 M.mappings.plugins = {
    bufferline = {
       next_buffer = "<TAB>",
@@ -200,15 +206,14 @@ M.mappings.plugins = {
       remove_workspace_folder = "<leader>wr",
       list_workspace_folders = "<leader>wl",
       type_definition = "<leader>D",
-      rename = "<leader>rn",
+      rename = "<leader>ra",
       code_action = "<leader>ca",
       references = "gr",
-      show_line_diagnostics = "ge",
+      float_diagnostics = "ge",
       goto_prev = "[d",
       goto_next = "]d",
       set_loclist = "<leader>q",
       formatting = "<leader>fm",
-      range_code_action = "<leader>ca",
    },
 
    nvimtree = {
@@ -223,15 +228,10 @@ M.mappings.plugins = {
       git_commits = "<leader>cm",
       git_status = "<leader>gt",
       help_tags = "<leader>fh",
-      live_grep = "<leader>fg",
+      live_grep = "<leader>fw",
       oldfiles = "<leader>fo",
       themes = "<leader>th", -- NvChad theme picker
-
-      telescope_media = {
-         media_files = "<leader>fp",
-      },
    },
 }
 
 return M
-
