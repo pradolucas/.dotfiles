@@ -1,0 +1,7 @@
+exa
+bat
+procs
+ytop
+tldr
+du-dust
+git-delta

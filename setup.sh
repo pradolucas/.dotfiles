@@ -1,9 +1,12 @@
 #!/bin/bash
 
 xargs sudo apt install -y <scripts/packages.txt
+xargs cargo install <scripts/cargo.txt
 
 rm -rf "$HOME/.zinit"
 rm -rf "$HOME/.oh-my-zsh"
+
+stow -vSt ~ git
 
 echo -e "\n\n Installing ohmyzsh..."
 # ohmyzsh
@@ -28,18 +31,16 @@ git clone https://github.com/gpakosz/.tmux.git
 ln -f .tmux/.tmux.conf tmux/
 stow -vSt ~ tmux
 
-echo -e"\n\n Installing nvim & NVChad..."
-# NVIM & ~NV CHAD~
+echo -e"\n\n Installing nvim & LunarVim..."
+# NVIM
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x nvim.appimage
 mkdir --parents "$HOME/.local/bin/"; mv nvim.appimage $_
 
-# Nvim
+# Lunar Vim
 rm -rf ~/NVIM.BAK
 mv ~/.config/nvim ~/.config/NVIM.BAK
-git clone https://github.com/NvChad/NvChad ~/.config/nvim/
-# mv nvim/.config/lua/custom ~/.config/nvim/lua/
-stow -vSt ~ nvim
-"$HOME/.local/bin/nvim.appimage" +'hi NormalFloat guibg=#1e222a' +PackerSync
+sh "$(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)"
+# stow -vSt ~ nvim
 
 echo "Finished! Reload your terminal to use the latest setup. Now, download the dracula theme and a Nerd font(Caskaydia)"

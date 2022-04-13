@@ -5,3 +5,4 @@ stow
 most
 build-essential
 ripgrep
+cargo

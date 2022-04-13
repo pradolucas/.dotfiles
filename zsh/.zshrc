@@ -1,6 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH="/home/lodarp/.oh-my-zsh"
 
@@ -27,6 +24,12 @@ SPACESHIP_CHAR_SYMBOL="ζ"
 SPACESHIP_CHAR_SUFFIX=" "
 SPACESHIP_USER_COLOR="135"
 
+source $ZSH/oh-my-zsh.sh
+
+plugins=(
+  git 
+)
+
 [ -f ~/.dotfiles/scripts/plugins.zsh ] && source ~/.dotfiles/scripts/plugins.zsh
 
 [ -f ~/.dotfiles/scripts/environment_variables.zsh ] && source ~/.dotfiles/scripts/environment_variables.zsh
@@ -39,20 +42,12 @@ SPACESHIP_USER_COLOR="135"
 
 [ -f ~/.local_settings.zsh ] && source ~/.local_settings.zsh
 
-plugins=(
-  git 
-)
-
-source $ZSH/oh-my-zsh.sh
-
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+  export EDITOR='lvim'
 else
-  export EDITOR='mvim'
+  export EDITOR='nvim'
 fi
 
 # Better colors man pag
 export PAGER="most"
-# LS colors 
-. "/home/lodarp/.local/share/lscolors.sh"

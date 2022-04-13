@@ -18,7 +18,7 @@ ialias src="source ~/.zshrc"
 
 alias vs="code-insiders ."
 
-alias nvim='/home/lodarp/.local/bin/nvim.appimage'
+# alias nvim='/home/lodarp/.local/bin/nvim.appimage'
 alias vim="nvim"
 alias vi="nvim"
 alias v="nvim"
@@ -45,18 +45,14 @@ alias gc="git checkout"
 alias gs="git status"
 alias gp="git push"
 alias gpf="git push --set-upstream origin \$(git symbolic-ref --short HEAD)"
+alias ct="bat ~/.dotfiles/scripts/commit-types.txt"
 
-#dar uma olhada no bat https://github.com/sharkdp/bat
-alias ct="bat ~/dotfiles/scripts/commit-types.txt"
-
-# dar uma olhada no exa
-# ialias ls="exa --all"
-# ialias ll="exa -l --all"
-# ialias l="exa -l --all"
-# ialias cat="bat"
-ialias ll="ls -lahFv --color"
-
-# alias tree="exa -a --tree --level=2 --long --ignore-glob=\"*.git*\""
+ialias ls="exa --icons"
+ialias la="exa -la --icons"
+ialias ll="exa -ll --icons"
+ialias cat="bat"
+ialias tree="exa -a --tree --level=4 --long --ignore-glob=\"*.git*\""
+# ialias ll="ls -lahFv --color"
 
 # Commits staged and pushes in one go (e.g. gcps -m "another test passes")
 gcps() {
