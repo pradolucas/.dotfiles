@@ -1,6 +1,6 @@
 #!/bin/bash
 
-xargs sudo apt install -y <scripts/packages.txt
+xargs apt install -y <scripts/packages.txt
 xargs cargo install <scripts/cargo.txt
 
 rm -rf "$HOME/.zinit"
