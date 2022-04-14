@@ -5,7 +5,7 @@ apt update -y
 apt upgrade -y
 apt install git
 mkdir -p "$HOME/.dotfiles"
-git clone https://github.com/pradolucas/.dotfiles --branch automatic "$HOME/.dotfiles"
+git clone https://github.com/pradolucas/.dotfiles --branch master "$HOME/.dotfiles"
 chmod +r+x "$HOME/.dotfiles/setup.sh"
 
 echo "Installing"
