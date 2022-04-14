@@ -1,9 +1,9 @@
 #!/usr/bin/env -S bash -x
 set -e
 
-sudo apt update -y
-sudo apt upgrade -y
-sudo apt install git
+apt update -y
+apt upgrade -y
+apt install git
 mkdir -p "$HOME/.dotfiles"
 git clone https://github.com/pradolucas/.dotfiles --branch automatic "$HOME/.dotfiles"
 chmod +r+x "$HOME/.dotfiles/setup.sh"
