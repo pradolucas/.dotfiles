@@ -1,5 +1,6 @@
 [user]
 	email = santos.lucasprado@gmail.com
+	name = pradolucas
 [core]
 	pager = delta
 	editor = nvim

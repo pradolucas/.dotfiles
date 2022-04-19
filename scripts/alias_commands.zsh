@@ -21,7 +21,9 @@ alias vs="code-insiders ."
 # alias nvim='/home/lodarp/.local/bin/nvim.appimage'
 alias vim="nvim"
 alias vi="nvim"
-alias v="nvim"
+alias v="lvim"
+alias lv="lvim"
+
 
 alias tm="tmux"
 alias tma="tmux attach-session"
