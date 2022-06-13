@@ -12,20 +12,20 @@ fi
 rm -rf "$HOME/.zinit"
 rm -rf "$HOME/.oh-my-zsh"
 
-stow -vSt ~ git
+stow -vSt $HOME git
 
 # ohmyzsh
 echo -e "\n\n Installing ohmyzsh..."
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # curl -fsSLhttps://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash 
-rm ~/.zshrc
+rm "$HOME/.zshrc"
 
 ## ZSH & spaceship
 echo -e "\n\n Installing ZSH & spaceship theme..."
 echo '[*] Stowing'
-stow -vSt ~ zsh
+stow -vSt $HOME zsh
 
-ZSH_CUSTOM="/home/lodarp/.oh-my-zsh/custom/"
+ZSH_CUSTOM="$HOME/.oh-my-zsh/custom/"
 git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
 ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
@@ -35,7 +35,7 @@ rm -rf .tmux
 mv tmux/.tmux.conf tmux/.tmux.conf.BAK
 git clone https://github.com/gpakosz/.tmux.git
 ln -f .tmux/.tmux.conf tmux/
-stow -vSt ~ tmux
+stow -vSt $HOME tmux
 
 # NVIM
 echo -e"\n\n Installing nvim & LunarVim..."
@@ -44,7 +44,7 @@ chmod u+x nvim.appimage
 mkdir --parents "$HOME/.local/bin/"; mv nvim.appimage $_
 
 # Lunar Vim
-rm -rf ~/NVIM.BAK
+rm -rf "$HOME/NVIM.BAK"
 mv ~/.config/nvim ~/.config/NVIM.BAK
 sh "$(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)"
 # stow -vSt ~ nvim
