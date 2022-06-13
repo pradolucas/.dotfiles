@@ -1,8 +1,8 @@
 #!/usr/bin/env -S bash -x
 set -e
 
-apt update -y
-apt upgrade -y
+#apt update -y
+#apt upgrade -y
 apt install git
 mkdir -p "$HOME/.dotfiles"
 git clone https://github.com/pradolucas/.dotfiles --branch master "$HOME/.dotfiles"
