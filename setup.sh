@@ -1,21 +1,27 @@
 #!/bin/bash
 
 xargs apt install -y <scripts/packages.txt
-xargs cargo install <scripts/cargo.txt
+
+## Cargo packages
+read -p "Install cargo packages? " -n 1 -r
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+  xargs cargo install <scripts/cargo.txt
+fi
 
 rm -rf "$HOME/.zinit"
 rm -rf "$HOME/.oh-my-zsh"
 
 stow -vSt ~ git
 
-echo -e "\n\n Installing ohmyzsh..."
 # ohmyzsh
+echo -e "\n\n Installing ohmyzsh..."
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # curl -fsSLhttps://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash 
 rm ~/.zshrc
 
-echo -e "\n\n Installing ZSH & spaceship theme..."
 ## ZSH & spaceship
+echo -e "\n\n Installing ZSH & spaceship theme..."
 echo '[*] Stowing'
 stow -vSt ~ zsh
 
@@ -23,16 +29,16 @@ ZSH_CUSTOM="/home/lodarp/.oh-my-zsh/custom/"
 git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
 ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
-echo -e"\n\n Installing Tmux..."
 # Tmux 
+echo -e"\n\n Installing Tmux..."
 rm -rf .tmux
 mv tmux/.tmux.conf tmux/.tmux.conf.BAK
 git clone https://github.com/gpakosz/.tmux.git
 ln -f .tmux/.tmux.conf tmux/
 stow -vSt ~ tmux
 
-echo -e"\n\n Installing nvim & LunarVim..."
 # NVIM
+echo -e"\n\n Installing nvim & LunarVim..."
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x nvim.appimage
 mkdir --parents "$HOME/.local/bin/"; mv nvim.appimage $_
