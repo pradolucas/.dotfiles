@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH="/home/lodarp/.oh-my-zsh"
+export ZSH=$HOME"/.oh-my-zsh"
 
 # Theme 
 ZSH_THEME='spaceship'
@@ -31,7 +31,6 @@ plugins=(
 )
 
 [ -f ~/.dotfiles/scripts/plugins.zsh ] && source ~/.dotfiles/scripts/plugins.zsh
-
 [ -f ~/.dotfiles/scripts/environment_variables.zsh ] && source ~/.dotfiles/scripts/environment_variables.zsh
 [ -f ~/.dotfiles/scripts/alias_expansion.zsh ] && source ~/.dotfiles/scripts/alias_expansion.zsh
 [ -f ~/.dotfiles/scripts/alias_commands.zsh ] && source ~/.dotfiles/scripts/alias_commands.zsh
