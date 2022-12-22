@@ -6,3 +6,4 @@ most
 build-essential
 ripgrep
 cargo
+exa
